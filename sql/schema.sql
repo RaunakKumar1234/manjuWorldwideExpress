@@ -1,0 +1,21 @@
+CREATE DATABASE IF NOT EXISTS manju_express CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE manju_express;
+
+CREATE TABLE IF NOT EXISTS admins (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(80) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS shipments (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  manju_tracking_no VARCHAR(40) NOT NULL UNIQUE,
+  customer_name VARCHAR(120) NOT NULL,
+  courier VARCHAR(40) NOT NULL,
+  actual_awb VARCHAR(120) NOT NULL,
+  destination VARCHAR(180) NOT NULL,
+  status VARCHAR(50) NOT NULL DEFAULT 'Booked',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  INDEX idx_tracking (manju_tracking_no)
+);

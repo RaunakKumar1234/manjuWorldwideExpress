@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MANJU WORLDWIDE EXPRESS</title>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<style>
+:root{--navy:#0b3158;--navy2:#08284a;--orange:#ff8300;--green:#16c765;--bg:#f4f9fe;--text:#123b63;--muted:#66809a;--border:#d8e4ef}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:#fff}
+header{position:sticky;top:0;z-index:100;background:var(--navy);box-shadow:0 4px 18px #0002}.nav{max-width:1250px;height:84px;margin:auto;padding:0 22px;display:flex;align-items:center;gap:22px}
+.brand{display:flex;align-items:center;gap:11px;min-width:380px;color:#fff}.logo{height:53px;width:53px;border:3px solid #fff;border-radius:50%;display:grid;place-items:center;font-size:25px}.brand strong{font-size:25px;letter-spacing:.5px}.brand small{display:block;color:var(--orange);font-weight:800;margin-top:3px}.tag{border-left:1px solid #ffffff55;padding-left:14px;font-size:13px;line-height:16px}.links{display:flex;gap:27px;margin-left:auto}.links a{color:#fff;text-decoration:none;font-weight:700}.links a:hover{color:var(--orange)}.wa{background:var(--green);color:#fff;text-decoration:none;font-weight:800;padding:15px 19px;border-radius:14px;white-space:nowrap}
+.hero{min-height:620px;background:linear-gradient(135deg,#eef7ff,#fff);position:relative;overflow:hidden;padding:70px 22px}.hero:after{content:"";position:absolute;right:-180px;top:40px;width:650px;height:650px;border-radius:50%;background:#dceeff;opacity:.65}.hero-inner{max-width:1250px;margin:auto;display:grid;grid-template-columns:1fr 550px;gap:60px;align-items:center;position:relative;z-index:2}.hero h1{font-size:67px;line-height:.99;margin:0 0 22px;color:var(--navy)}.hero h1 span{color:var(--orange)}.hero p{font-size:18px;line-height:1.65;color:#456681;max-width:650px}.eyebrow{color:var(--orange);font-weight:800;letter-spacing:.5px}.benefits{display:grid;grid-template-columns:repeat(4,1fr);margin-top:40px}.benefit{text-align:center;border-right:1px solid #bdd0e0;padding:10px}.benefit:last-child{border:0}.benefit .ico{font-size:27px}.benefit b{display:block;font-size:13px;margin-top:8px}
+.booking{background:#fff;border-radius:22px;box-shadow:0 18px 45px #173e5b26;overflow:hidden}.booking-head{background:var(--navy);color:#fff;padding:25px}.booking-head h2{margin:0;font-size:24px}.booking-head p{margin:7px 0 0;color:#d7e8f8}.booking-body{padding:22px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field label{display:block;font-weight:800;font-size:13px;margin-bottom:7px}.input,.select{width:100%;padding:14px;border:1px solid #cbdbe9;border-radius:9px;font-size:15px;background:#fff}.full{grid-column:1/-1}.book-btn{width:100%;border:0;background:var(--orange);color:#fff;font-weight:800;font-size:16px;padding:16px;border-radius:11px;cursor:pointer;margin-top:15px}.book-note{text-align:center;color:#7a91a6;font-size:12px}
+section{padding:72px 22px}.container{max-width:1100px;margin:auto}.title{text-align:center;margin-bottom:36px}.title h2{font-size:39px;margin:8px 0}.title p{color:var(--muted)}
+.track-section{background:var(--navy);color:#fff}.track-card{background:#fff;border-radius:18px;padding:25px;box-shadow:0 12px 35px #0002}.track-form{display:grid;grid-template-columns:1fr 170px;gap:12px}.track-btn{border:0;background:var(--orange);color:#fff;font-weight:800;border-radius:9px;font-size:16px;cursor:pointer}.chips{margin-top:10px;color:#65819a;font-size:12px}.track-result{margin-top:18px}.found{border:1px solid var(--border);border-radius:13px;padding:20px;color:var(--text);background:#fbfdff}.status{display:inline-block;padding:7px 12px;border-radius:20px;background:#fff0d9;color:#a45600;font-weight:800}.details{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:15px}.detail{border:1px solid var(--border);border-radius:9px;padding:13px}.detail small{display:block;color:var(--muted);margin-bottom:5px}.track-link{display:inline-block;margin-top:15px;background:var(--navy);color:#fff;padding:12px 18px;border-radius:9px;text-decoration:none;font-weight:800}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{border:1px solid var(--border);border-radius:16px;padding:25px;text-align:center}.card .big{font-size:34px}.card h3{margin:12px 0 7px}.card p{color:var(--muted);font-size:14px;line-height:1.5}
+.contact{background:var(--bg)}.contact-box{display:grid;grid-template-columns:1fr 1fr;gap:22px}.contact-card{background:#fff;padding:28px;border-radius:17px;border:1px solid var(--border)}.contact-card h3{margin-top:0}.contact-btn{display:inline-block;padding:12px 18px;background:var(--green);color:#fff;text-decoration:none;border-radius:9px;font-weight:800;margin-top:8px}
+footer{background:var(--navy2);color:#fff;text-align:center;padding:35px 20px}footer p{color:#bdd2e5;font-size:13px}.admin-link{color:#8daac2;text-decoration:none;font-size:11px}
+.modal{display:none;position:fixed;inset:0;background:#071e33cc;z-index:500;align-items:center;justify-content:center;padding:20px}.modal.show{display:flex}.modal-box{background:#fff;border-radius:17px;width:min(1050px,100%);max-height:90vh;overflow:auto;padding:25px}.modal-top{display:flex;justify-content:space-between;align-items:center}.close{border:0;background:#eee;border-radius:50%;width:35px;height:35px;cursor:pointer;font-size:18px}.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.panel{border:1px solid var(--border);border-radius:14px;padding:20px}.panel h3{margin-top:0}.actions{display:flex;gap:9px;flex-wrap:wrap}.admin-btn{border:0;background:var(--navy);color:#fff;padding:12px 15px;border-radius:8px;font-weight:800;cursor:pointer}.admin-btn.orange{background:var(--orange)}.admin-btn.red{background:#d84b4b}.table-wrap{overflow:auto;margin-top:15px}.table{width:100%;border-collapse:collapse;min-width:850px}.table th,.table td{padding:10px;border-bottom:1px solid var(--border);font-size:12px;text-align:left}.table th{background:#edf5fb}.login{max-width:400px;margin:auto}.hidden{display:none!important}.toast{display:none;position:fixed;right:20px;bottom:20px;background:var(--navy);color:#fff;padding:14px 18px;border-radius:10px;z-index:900}
+@media(max-width:950px){.hero-inner{grid-template-columns:1fr}.hero h1{font-size:53px}.brand{min-width:auto}.tag{display:none}.links{gap:14px}.cards{grid-template-columns:1fr 1fr}.benefits{grid-template-columns:1fr 1fr;gap:10px}.admin-grid{grid-template-columns:1fr}}
+@media(max-width:650px){.nav{height:auto;flex-wrap:wrap;padding:12px 15px}.brand strong{font-size:20px}.logo{width:45px;height:45px}.links{order:3;width:100%;justify-content:space-around}.links a:nth-child(n+4){display:none}.wa{display:none}.hero{padding:50px 16px}.hero h1{font-size:43px}.form-grid,.contact-box{grid-template-columns:1fr}.full{grid-column:auto}.cards{grid-template-columns:1fr}.details{grid-template-columns:1fr}.track-form{grid-template-columns:1fr}.track-btn{padding:14px}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="nav">
+  <div class="brand">
+    <div class="logo">🌐</div>
+    <div><strong>MANJU</strong><small>WORLDWIDE EXPRESS</small></div>
+    <div class="tag">Your Parcel<br>Your Priority</div>
+  </div>
+  <nav class="links">
+    <a href="#home">Home</a><a href="#services">Services</a><a href="#track">Track</a><a href="#contact">Contact</a>
+  </nav>
+  <a class="wa" href="https://wa.me/919798174037" target="_blank">💬 Chat on WhatsApp</a>
+</div>
+</header>
+
+<section id="home" class="hero">
+<div class="hero-inner">
+  <div>
+    <div class="eyebrow">INTERNATIONAL & DOMESTIC COURIER</div>
+    <h1>Send Anything.<br><span>Anywhere.</span><br>With Confidence.</h1>
+    <p>Fast, safe and reliable courier delivery for documents, parcels and packages — across India and around the globe.</p>
+    <div class="benefits">
+      <div class="benefit"><div class="ico">🌐</div><b>Global<br>Reach</b></div>
+      <div class="benefit"><div class="ico">🛡️</div><b>Secure<br>Delivery</b></div>
+      <div class="benefit"><div class="ico">⏱️</div><b>On-Time<br>Delivery</b></div>
+      <div class="benefit"><div class="ico">🎧</div><b>24/7<br>Support</b></div>
+    </div>
+  </div>
+
+  <div class="booking">
+    <div class="booking-head"><h2>📦 Book Your Courier</h2><p>Fill the details below and send via WhatsApp</p></div>
+    <div class="booking-body">
+      <div class="form-grid">
+        <div class="field"><label>Source / Pickup Location</label><input id="source" class="input" placeholder="Enter pickup location"></div>
+        <div class="field"><label>Destination / Delivery Location</label><input id="destinationBook" class="input" placeholder="Enter delivery location"></div>
+        <div class="field"><label>Customer Name</label><input id="customerBook" class="input" placeholder="Enter your name"></div>
+        <div class="field"><label>Phone / WhatsApp Number</label><input id="phoneBook" class="input" placeholder="Enter mobile number"></div>
+        <div class="field"><label>Parcel Type</label><select id="parcel" class="select"><option value="">Select parcel type</option><option>Documents</option><option>Clothes</option><option>Electronics</option><option>Gift</option><option>Commercial Parcel</option><option>Other</option></select></div>
+        <div class="field"><label>Weight (Approx.)</label><select id="weight" class="select"><option value="">Select weight</option><option>Up to 0.5 KG</option><option>0.5 - 1 KG</option><option>1 - 2 KG</option><option>2 - 5 KG</option><option>5 - 10 KG</option><option>10+ KG</option></select></div>
+        <div class="field full"><label>Pickup Date</label><input id="pickupDate" type="date" class="input"></div>
+      </div>
+      <button class="book-btn" onclick="sendBooking()">💬 Send Booking on WhatsApp →</button>
+      <p class="book-note">Your booking details will be sent to WhatsApp number +91 97981 74037.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="services">
+<div class="container">
+  <div class="title"><div class="eyebrow">WHY CHOOSE US</div><h2>Trusted. Secure. Global.</h2><p>Your trust drives us to deliver better every day.</p></div>
+  <div class="cards">
+    <div class="card"><div class="big">🛡️</div><h3>Safe & Secure</h3><p>Your items are handled with care and attention.</p></div>
+    <div class="card"><div class="big">🌍</div><h3>Worldwide Network</h3><p>International and domestic courier solutions.</p></div>
+    <div class="card"><div class="big">🏷️</div><h3>Competitive Rates</h3><p>Courier options to match your budget.</p></div>
+    <div class="card"><div class="big">🎧</div><h3>Dedicated Support</h3><p>Get help with booking and shipment updates.</p></div>
+  </div>
+</div>
+</section>
+
+<section id="track" class="track-section">
+<div class="container">
+  <div class="title"><div class="eyebrow">TRACK YOUR SHIPMENT</div><h2 style="color:#fff">Know Where Your Parcel Is</h2><p style="color:#c4d9eb">Enter your MANJU Tracking Number. You don't need the actual courier AWB.</p></div>
+  <div class="track-card">
+    <div class="track-form">
+      <input id="trackingInput" class="input" placeholder="Example: MWX-2026-8F4K92">
+      <button class="track-btn" onclick="trackShipment()">🔎 Track Now</button>
+    </div>
+    <div class="chips">Try demo: <a href="#" onclick="demo('MWX-2026-8F4K92');return false">MWX-2026-8F4K92</a> &nbsp; | &nbsp; <a href="#" onclick="demo('MWX-2026-7D2P61');return false">MWX-2026-7D2P61</a></div>
+    <div id="trackResult" class="track-result"></div>
+  </div>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<div class="container">
+  <div class="title"><div class="eyebrow">GET IN TOUCH</div><h2>Our Location & Contact</h2><p>We are always ready to help you.</p></div>
+  <div class="contact-box">
+    <div class="contact-card"><h3>📞 Call Us</h3><p>Speak with our courier support team.</p><a class="contact-btn" href="tel:+919798174037">Call +91 97981 74037</a></div>
+    <div class="contact-card"><h3>💬 WhatsApp</h3><p>Send your booking or shipment query.</p><a class="contact-btn" href="https://wa.me/919798174037" target="_blank">Chat on WhatsApp</a></div>
+    <div class="contact-card"><h3>📍 Service Area</h3><p>Delhi NCR, India and worldwide courier destinations.</p></div>
+    <div class="contact-card"><h3>✉️ Courier Support</h3><p>Booking, pickup and tracking assistance.</p></div>
+  </div>
+</div>
+</section>
+
+<footer>
+  <p>© 2026 MANJU WORLDWIDE EXPRESS — Your Parcel, Your Priority.</p>
+  <a class="admin-link" href="#" onclick="openAdmin();return false">Admin</a>
+</footer>
+
+<!-- ADMIN IS NOT SHOWN TO NORMAL CUSTOMERS -->
+<div id="adminModal" class="modal">
+<div class="modal-box">
+  <div id="loginArea" class="login">
+    <div class="modal-top"><h2>🔐 Admin Login</h2><button class="close" onclick="closeAdmin()">×</button></div>
+    <p style="color:#66809a">Shipment management is only for MANJU staff.</p>
+    <input id="adminPassword" type="password" class="input" placeholder="Admin password">
+    <button class="admin-btn orange" style="width:100%;margin-top:12px" onclick="loginAdmin()">Login</button>
+    <p style="font-size:12px;color:#8899a8">Prototype password: <b>manju123</b></p>
+  </div>
+
+  <div id="adminArea" class="hidden">
+    <div class="modal-top"><div><h2>⚙️ MANJU Admin Panel</h2><p style="color:#66809a">Create MANJU numbers and map them to actual courier AWBs.</p></div><button class="close" onclick="closeAdmin()">×</button></div>
+    <div class="admin-grid">
+      <div class="panel">
+        <h3>➕ Create / Map Shipment</h3>
+        <div class="field"><label>Customer Name</label><input id="aCustomer" class="input" placeholder="Rahul Kumar"></div>
+        <div class="field"><label>Courier Partner</label><select id="aCourier" class="select"><option>DHL</option><option>FedEx</option><option>DTDC</option><option>Aramex</option><option>UPS</option><option>Blue Dart</option></select></div>
+        <div class="field"><label>Actual Courier AWB</label><input id="aAwb" class="input" placeholder="Actual AWB received from courier"></div>
+        <div class="field"><label>Destination</label><input id="aDestination" class="input" placeholder="London, UK"></div>
+        <div class="field"><label>Status</label><select id="aStatus" class="select"><option>Booked</option><option>Picked Up</option><option>In Transit</option><option>Out for Delivery</option><option>Delivered</option></select></div>
+        <button class="admin-btn orange" onclick="createShipment()">Generate MANJU Tracking Number</button>
+        <p style="font-size:12px;color:#788ea1">The customer sees only the MANJU number, not the actual AWB.</p>
+      </div>
+      <div class="panel">
+        <h3>📊 Excel Management</h3>
+        <p style="font-size:13px;color:#66809a;line-height:1.6">Export your shipment records to Excel. You can edit the Excel file and import it again to update this prototype.</p>
+        <div class="actions">
+          <button class="admin-btn" onclick="exportExcel()">⬇ Export Excel</button>
+          <label class="admin-btn" style="cursor:pointer">⬆ Import Excel <input type="file" accept=".xlsx,.xls,.csv" hidden onchange="importExcel(event)"></label>
+          <button class="admin-btn red" onclick="clearData()">Clear Data</button>
+        </div>
+        <p style="font-size:12px;color:#788ea1"><b>Note:</b> Excel changes are applied when you import the file. This HTML-only version stores data in this browser.</p>
+      </div>
+    </div>
+    <div class="panel" style="margin-top:20px">
+      <h3>📦 Shipment Records</h3>
+      <div class="table-wrap"><table class="table"><thead><tr><th>MANJU No.</th><th>Customer</th><th>Courier</th><th>Actual AWB</th><th>Destination</th><th>Status</th><th>Created</th></tr></thead><tbody id="shipmentTable"></tbody></table></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+const KEY="manju_shipments_v2";
+const initial=[
+ {manju_tracking_no:"MWX-2026-8F4K92",customer_name:"Rahul Kumar",courier:"DHL",actual_awb:"1234567890",destination:"London, UK",status:"In Transit",created_at:"17-09-2026"},
+ {manju_tracking_no:"MWX-2026-7D2P61",customer_name:"Amit Kumar",courier:"FedEx",actual_awb:"7845123698",destination:"Dubai, UAE",status:"Booked",created_at:"17-09-2026"}
+];
+let shipments=JSON.parse(localStorage.getItem(KEY)||"null")||initial;
+
+function save(){localStorage.setItem(KEY,JSON.stringify(shipments));renderTable()}
+function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function renderTable(){document.getElementById("shipmentTable").innerHTML=shipments.map(s=>`<tr><td><b>${esc(s.manju_tracking_no)}</b></td><td>${esc(s.customer_name)}</td><td>${esc(s.courier)}</td><td>${esc(s.actual_awb)}</td><td>${esc(s.destination)}</td><td>${esc(s.status)}</td><td>${esc(s.created_at)}</td></tr>`).join("")}
+function toast(t){let e=document.getElementById("toast");e.textContent=t;e.style.display="block";setTimeout(()=>e.style.display="none",2800)}
+
+function sendBooking(){
+ let s=document.getElementById("source").value.trim(),d=document.getElementById("destinationBook").value.trim(),n=document.getElementById("customerBook").value.trim(),p=document.getElementById("phoneBook").value.trim(),type=document.getElementById("parcel").value,w=document.getElementById("weight").value,date=document.getElementById("pickupDate").value;
+ if(!s||!d||!n||!p||!type||!w||!date){toast("Please fill all booking details.");return}
+ let msg=`MANJU WORLDWIDE EXPRESS - COURIER BOOKING%0A%0ACustomer: ${encodeURIComponent(n)}%0APhone/WhatsApp: ${encodeURIComponent(p)}%0APickup: ${encodeURIComponent(s)}%0ADestination: ${encodeURIComponent(d)}%0AParcel Type: ${encodeURIComponent(type)}%0AWeight: ${encodeURIComponent(w)}%0APickup Date: ${encodeURIComponent(date)}`;
+ window.open("https://wa.me/919798174037?text="+msg,"_blank");
+}
+
+function trackShipment(){
+ let n=document.getElementById("trackingInput").value.trim().toUpperCase(),box=document.getElementById("trackResult");
+ let s=shipments.find(x=>x.manju_tracking_no.toUpperCase()===n);
+ if(!n){box.innerHTML='<div class="found">Please enter your MANJU Tracking Number.</div>';return}
+ if(!s){box.innerHTML='<div class="found"><b>Shipment not found.</b><p>Please check your MANJU tracking number.</p></div>';return}
+ box.innerHTML=`<div class="found"><span class="status">${esc(s.status)}</span><h2>Shipment Found ✓</h2><p style="color:#66809a">Your MANJU tracking number has been matched with the courier shipment.</p><div class="details"><div class="detail"><small>MANJU Tracking No.</small><b>${esc(s.manju_tracking_no)}</b></div><div class="detail"><small>Courier Partner</small><b>${esc(s.courier)}</b></div><div class="detail"><small>Destination</small><b>${esc(s.destination)}</b></div></div><a class="track-link" href="${courierUrl(s.courier,s.actual_awb)}" target="_blank">Track with ${esc(s.courier)} →</a></div>`;
+}
+function courierUrl(c,a){
+ const x=encodeURIComponent(a);
+ if(c==="DHL")return "https://www.dhl.com/global-en/home/tracking.html?tracking-id="+x;
+ if(c==="FedEx")return "https://www.fedex.com/fedextrack/?trknbr="+x;
+ if(c==="UPS")return "https://www.ups.com/track?tracknum="+x;
+ if(c==="Aramex")return "https://www.aramex.com/track/results?ShipmentNumber="+x;
+ if(c==="DTDC")return "https://www.dtdc.in/tracking.asp";
+ return "https://www.bluedart.com/tracking";
+}
+function demo(n){document.getElementById("trackingInput").value=n;trackShipment();document.getElementById("track").scrollIntoView({behavior:"smooth"})}
+
+function openAdmin(){document.getElementById("adminModal").classList.add("show")}
+function closeAdmin(){document.getElementById("adminModal").classList.remove("show")}
+function loginAdmin(){
+ if(document.getElementById("adminPassword").value==="manju123"){document.getElementById("loginArea").classList.add("hidden");document.getElementById("adminArea").classList.remove("hidden");renderTable()}
+ else toast("Incorrect admin password.");
+}
+function generateMWX(){
+ let chars="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",code="";
+ for(let i=0;i<6;i++)code+=chars[Math.floor(Math.random()*chars.length)];
+ return "MWX-2026-"+code;
+}
+function createShipment(){
+ let c=document.getElementById("aCustomer").value.trim(),courier=document.getElementById("aCourier").value,awb=document.getElementById("aAwb").value.trim(),d=document.getElementById("aDestination").value.trim(),st=document.getElementById("aStatus").value;
+ if(!c||!awb||!d){toast("Customer, AWB and Destination are required.");return}
+ let no=generateMWX();while(shipments.some(s=>s.manju_tracking_no===no))no=generateMWX();
+ shipments.unshift({manju_tracking_no:no,customer_name:c,courier,actual_awb:awb,destination:d,status:st,created_at:new Date().toLocaleDateString("en-GB")});
+ save();document.getElementById("aCustomer").value="";document.getElementById("aAwb").value="";document.getElementById("aDestination").value="";
+ document.getElementById("trackingInput").value=no;toast("Created "+no);
+}
+function exportExcel(){
+ let ws=XLSX.utils.json_to_sheet(shipments),wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,"Shipments");XLSX.writeFile(wb,"MANJU_Shipments.xlsx");toast("Excel exported.");
+}
+function importExcel(e){
+ let f=e.target.files[0];if(!f)return;let r=new FileReader();
+ r.onload=function(ev){try{
+  let wb=XLSX.read(ev.target.result,{type:"array"}),rows=XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]);
+  let out=rows.map(x=>({manju_tracking_no:String(x.manju_tracking_no||x["MANJU Tracking"]||x["MANJU Tracking No."]||"").trim(),customer_name:String(x.customer_name||x.Customer||"").trim(),courier:String(x.courier||x.Courier||"").trim(),actual_awb:String(x.actual_awb||x["Actual AWB"]||"").trim(),destination:String(x.destination||x.Destination||"").trim(),status:String(x.status||x.Status||"Booked").trim(),created_at:String(x.created_at||x.Created||new Date().toLocaleDateString("en-GB")).trim()})).filter(x=>x.manju_tracking_no&&x.actual_awb);
+  if(!out.length)throw new Error("No valid shipment rows.");
+  shipments=out;save();toast(out.length+" shipments imported.");
+ }catch(err){toast("Import failed: "+err.message)}e.target.value=""};r.readAsArrayBuffer(f);
+}
+function clearData(){if(confirm("Clear all shipment records from this browser?")){shipments=[];save();toast("All records cleared.")}}
+renderTable();
+</script>
+</body>
+</html>
